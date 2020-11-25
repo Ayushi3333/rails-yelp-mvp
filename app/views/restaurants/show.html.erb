@@ -12,13 +12,6 @@
         <li><%= review.content%> - <%= review.rating %> stars</li>
       <% end %>
     </ul>
-    <container>
-      <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%= f.input :rating %>
-        <%= f.input :content %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
-      <% end %>
-    </container>
-    <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+    <%= render "reviews/form" %>
     <br>
     <%= link_to "Back to list", restaurants_path %>
